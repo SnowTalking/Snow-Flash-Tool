@@ -7,8 +7,8 @@ FastbootD Image Flasher
 Useful tool for flashing fastbootd images (roms only) to a phone with dynamic partitons.
 
 Requirements:
-Windows 64bit
-Android Phone with dynamic partitions
+Windows 64bit,
+Android Phone with dynamic partitions,
 adb and fastboot is not included!!! You must run the .exe in a directory with adb and fastboot or this will not work!
 
 Notes: This project is in BETA, if you notice any bugs, freezes, unexpected problems. Report Back to me here or on telegram @SnowTalking
