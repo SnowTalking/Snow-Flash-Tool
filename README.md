@@ -11,7 +11,7 @@ Windows 64bit,
 Android Phone with dynamic partitions,
 adb and fastboot is not included!!! You must run the .exe in a directory with adb and fastboot or this will not work!
 
-Notes: This project is in BETA, if you notice any bugs, freezes, unexpected problems. Report Back to me here or on telegram @SnowTalking
+Notes: This project is in BETA, if you notice any bugs, freezes, unexpected problems. Report Back to me on xda or on telegram @SnowTalking
 OR join my group for discussions and releases!!!
 https://t.me/fastbootdimageflasherdiscussion
 https://t.me/fastbootdimageflasher
