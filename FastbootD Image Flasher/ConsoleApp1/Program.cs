@@ -110,7 +110,6 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("------------------------------");
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    cmd.StandardInput.WriteLine("fastboot set_active a");
                     cmd.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
                     cmd.StandardInput.WriteLine("fastboot flash boot boot.img");
                     cmd.StandardInput.WriteLine("fastboot flash system system.img");
@@ -160,7 +159,6 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("------------------------------");
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    p.StandardInput.WriteLine("fastboot set_active a");
                     p.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
                     p.StandardInput.WriteLine("fastboot flash boot boot.img");
                     p.StandardInput.WriteLine("fastboot flash system system.img");
@@ -208,7 +206,6 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("------------------------------");
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    a.StandardInput.WriteLine("fastboot set_active a");
                     a.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
                     a.StandardInput.WriteLine("fastboot flash boot boot.img");
                     a.StandardInput.WriteLine("fastboot flash system system.img");
@@ -255,7 +252,6 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("------------------------------");
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    b.StandardInput.WriteLine("fastboot set_active a");
                     b.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
                     b.StandardInput.WriteLine("fastboot flash boot boot.img");
                     b.StandardInput.WriteLine("fastboot flash system system.img");
