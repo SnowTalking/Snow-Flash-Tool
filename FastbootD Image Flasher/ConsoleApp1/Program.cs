@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace ConsoleApp1
 {
@@ -12,12 +13,13 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            // 
-
+            Console.Title = "FastbootD Image Flasher";
             Console.WriteLine("Welcome To FastbootD Image Flasher!");
             Console.WriteLine("Made by SnowTalker @ XDA 2021");
             Console.WriteLine("              ");
             Console.WriteLine("Press any key to start.");
+            Console.WriteLine("              ");
+
 
             Console.ReadKey();
 
@@ -35,6 +37,7 @@ namespace ConsoleApp1
                 Console.Clear();
                 // Replace this with whatever you want.
                 Console.WriteLine("Choose an option . . .");
+                Console.WriteLine("           ");
                 // The loop that goes through all of the menu items.
                 for (c = 0; c < menuItems.Length; c++)
                 {
@@ -52,7 +55,11 @@ namespace ConsoleApp1
                     }
                 }
                 // Waits until the user presses a key, and puts it into our object key.
+                Console.WriteLine("         ");
                 Console.Write("Select your choice with the arrow keys.");
+                Console.WriteLine("         ");
+                Console.WriteLine("-");
+                Console.WriteLine("Use Enter key to choose the current selected item.");
                 key = Console.ReadKey(true);
                 // Simply put, if the key the user pressed is a "DownArrow", the current item will deacrease.
                 // Likewise for "UpArrow", except in the opposite direction.
@@ -67,30 +74,90 @@ namespace ConsoleApp1
                     curItem--;
                     if (curItem < 0) curItem = Convert.ToInt16(menuItems.Length - 1);
                 }
+
                 // Loop around until the user presses the enter go.
 
             } while (key.KeyChar != 13);
 
-            
+            Process cmd = new Process();
+
+            cmd.StartInfo.FileName = "cmd.exe";
+            cmd.StartInfo.RedirectStandardInput = true;
+            cmd.StartInfo.RedirectStandardOutput = true;
+            cmd.StartInfo.CreateNoWindow = false;
+            cmd.StartInfo.UseShellExecute = false;
+
+            var failed = "failed";
+
+            var waiting = "< waiting for any device >";
 
             switch (curItem)
             {
                 case 0:
-                    Process cmd = new Process();
-
-                    cmd.StartInfo.FileName = "cmd.exe";
-                    cmd.StartInfo.RedirectStandardInput = true;
-                    cmd.StartInfo.RedirectStandardOutput = true;
-                    cmd.StartInfo.CreateNoWindow = false;
-                    cmd.StartInfo.UseShellExecute = false;
-
-                    cmd.Start();
-
                     /* execute "dir" */
                     Console.Clear();
-                    Console.WriteLine("Are you sure you would like to continue? Y/N ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("| Are you sure you would like to continue? Y/N |");
+                    Console.WriteLine("------------------------------------------------");
+                    Console.ForegroundColor = ConsoleColor.White;
                     string result = Console.ReadLine();
                     if (result.Equals("y", StringComparison.OrdinalIgnoreCase) || result.Equals("yes", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.Clear();
+                        cmd.Start();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("Cancelled, Closing...");
+                        Thread.Sleep(1300);
+                        Environment.Exit(0);
+                        Console.ReadKey();
+                    }
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("------------------------------");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Flashing... Please be patient.");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("------------------------------");
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    cmd.StandardInput.WriteLine("fastboot devices");
+                    cmd.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
+                    cmd.StandardInput.WriteLine("fastboot flash boot boot.img");
+                    cmd.StandardInput.WriteLine("fastboot flash system system.img");
+                    cmd.StandardInput.WriteLine("fastboot flash product product.img");
+                    cmd.StandardInput.WriteLine("fastboot -w");
+                    cmd.StandardInput.WriteLine("fastboot reboot");
+                    cmd.StandardInput.Flush();
+                    cmd.StandardInput.Close();
+                    Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+                    if (failed.Contains("failed"))
+                    {
+                        cmd.Close();
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("----------------------------------");
+                        Console.WriteLine("FAILED, You may close this window.");
+                        Console.WriteLine("----------------------------------");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("------------------------------------");
+                        Console.WriteLine("Finished! You may close this window.");
+                        Console.WriteLine("------------------------------------");
+                    }
+                    break;
+                case 1:
+                    /* execute "dir" */
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("| Are you sure you would like to continue? Y/N |");
+                    Console.WriteLine("------------------------------------------------");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    string resultt = Console.ReadLine();
+                    if (resultt.Equals("y", StringComparison.OrdinalIgnoreCase) || resultt.Equals("yes", StringComparison.OrdinalIgnoreCase))
                     {
                         Console.Clear();
                         cmd.Start();
@@ -115,81 +182,37 @@ namespace ConsoleApp1
                     cmd.StandardInput.WriteLine("fastboot flash system system.img");
                     cmd.StandardInput.WriteLine("fastboot flash product product.img");
                     cmd.StandardInput.WriteLine("fastboot -w");
-                    cmd.StandardInput.WriteLine("fastboot reboot");
                     cmd.StandardInput.Flush();
                     cmd.StandardInput.Close();
                     Console.WriteLine(cmd.StandardOutput.ReadToEnd());
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("------------------------------------");
-                    Console.WriteLine("Finished! You may close this window.");
-                    Console.WriteLine("------------------------------------");
-                    break;
-                case 1:
-                    Process p = new Process();
-
-                    p.StartInfo.FileName = "cmd.exe";
-                    p.StartInfo.RedirectStandardInput = true;
-                    p.StartInfo.RedirectStandardOutput = true;
-                    p.StartInfo.CreateNoWindow = false;
-                    p.StartInfo.UseShellExecute = false;
-
-                    p.Start();
-
-                    /* execute "dir" */
-                    Console.Clear();
-                    Console.WriteLine("Would you like to continue? Y/N ");
-                    string resultt = Console.ReadLine();
-                    if (resultt.Equals("y", StringComparison.OrdinalIgnoreCase) || resultt.Equals("yes", StringComparison.OrdinalIgnoreCase))
+                    if (failed.Contains("failed"))
                     {
-                        Console.Clear();
-                        p.Start();
+                        cmd.Close();
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("----------------------------------");
+                        Console.WriteLine("FAILED, You may close this window.");
+                        Console.WriteLine("----------------------------------");
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Cancelled, Closing...");
-                        Thread.Sleep(1000);
-                        Environment.Exit(0);
-                        Console.ReadKey();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("------------------------------------");
+                        Console.WriteLine("Finished! You may close this window.");
+                        Console.WriteLine("------------------------------------");
                     }
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("------------------------------");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("Flashing... Please be patient.");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("------------------------------");
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    p.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
-                    p.StandardInput.WriteLine("fastboot flash boot boot.img");
-                    p.StandardInput.WriteLine("fastboot flash system system.img");
-                    p.StandardInput.WriteLine("fastboot flash product product.img");
-                    p.StandardInput.WriteLine("fastboot -w");
-                    p.StandardInput.Flush();
-                    p.StandardInput.Close();
-                    Console.WriteLine(p.StandardOutput.ReadToEnd());
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("------------------------------------");
-                    Console.WriteLine("Finished! You may close this window.");
-                    Console.WriteLine("------------------------------------");
                     break;
                 case 2:
-                    Process a = new Process();
-
-                    a.StartInfo.FileName = "cmd.exe";
-                    a.StartInfo.RedirectStandardInput = true;
-                    a.StartInfo.RedirectStandardOutput = true;
-                    a.StartInfo.CreateNoWindow = false;
-                    a.StartInfo.UseShellExecute = false;
-
-                    a.Start();
-
                     Console.Clear();
-                    Console.WriteLine("Would you like to continue? Y/N ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("| Are you sure you would like to continue? Y/N |");
+                    Console.WriteLine("------------------------------------------------");
+                    Console.ForegroundColor = ConsoleColor.White;
                     string resulttt = Console.ReadLine();
                     if (resulttt.Equals("y", StringComparison.OrdinalIgnoreCase) || resulttt.Equals("yes", StringComparison.OrdinalIgnoreCase))
                     {
                         Console.Clear();
-                        a.Start();
+                        cmd.Start();
                     }
                     else
                     {
@@ -206,36 +229,41 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("------------------------------");
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    a.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
-                    a.StandardInput.WriteLine("fastboot flash boot boot.img");
-                    a.StandardInput.WriteLine("fastboot flash system system.img");
-                    a.StandardInput.WriteLine("fastboot flash product product.img");
-                    a.StandardInput.Flush();
-                    a.StandardInput.Close();
-                    Console.WriteLine(a.StandardOutput.ReadToEnd());
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("------------------------------------");
-                    Console.WriteLine("Finished! You may close this window.");
-                    Console.WriteLine("------------------------------------");
+                    cmd.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
+                    cmd.StandardInput.WriteLine("fastboot flash boot boot.img");
+                    cmd.StandardInput.WriteLine("fastboot flash system system.img");
+                    cmd.StandardInput.WriteLine("fastboot flash product product.img");
+                    cmd.StandardInput.Flush();
+                    cmd.StandardInput.Close();
+                    Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+                    if (failed.Contains("failed"))
+                    {
+                        cmd.Close();
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("----------------------------------");
+                        Console.WriteLine("FAILED, You may close this window.");
+                        Console.WriteLine("----------------------------------");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("------------------------------------");
+                        Console.WriteLine("Finished! You may close this window.");
+                        Console.WriteLine("------------------------------------");
+                    }
                     break;
                 case 3:
-                    Process b = new Process();
-
-                    b.StartInfo.FileName = "cmd.exe";
-                    b.StartInfo.RedirectStandardInput = true;
-                    b.StartInfo.RedirectStandardOutput = true;
-                    b.StartInfo.CreateNoWindow = false;
-                    b.StartInfo.UseShellExecute = false;
-
-                    b.Start();
-
                     Console.Clear();
-                    Console.WriteLine("Would you like to continue? Y/N ");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("------------------------------------------------");
+                    Console.WriteLine("| Are you sure you would like to continue? Y/N |");
+                    Console.WriteLine("------------------------------------------------");
+                    Console.ForegroundColor = ConsoleColor.White;
                     string resultttt = Console.ReadLine();
                     if (resultttt.Equals("y", StringComparison.OrdinalIgnoreCase) || resultttt.Equals("yes", StringComparison.OrdinalIgnoreCase))
                     {
                         Console.Clear();
-                        b.Start();
+                        cmd.Start();
                     }
                     else
                     {
@@ -252,18 +280,29 @@ namespace ConsoleApp1
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("------------------------------");
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    b.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
-                    b.StandardInput.WriteLine("fastboot flash boot boot.img");
-                    b.StandardInput.WriteLine("fastboot flash system system.img");
-                    b.StandardInput.WriteLine("fastboot flash product product.img");
-                    b.StandardInput.WriteLine("fastboot reboot");
-                    b.StandardInput.Flush();
-                    b.StandardInput.Close();
-                    Console.WriteLine(b.StandardOutput.ReadToEnd());
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("------------------------------------");
-                    Console.WriteLine("Finished! You may close this window.");
-                    Console.WriteLine("------------------------------------");
+                    cmd.StandardInput.WriteLine("fastboot flash vbmeta vbmeta.img");
+                    cmd.StandardInput.WriteLine("fastboot flash boot boot.img");
+                    cmd.StandardInput.WriteLine("fastboot flash system system.img");
+                    cmd.StandardInput.WriteLine("fastboot flash product product.img");
+                    cmd.StandardInput.WriteLine("fastboot reboot");
+                    cmd.StandardInput.Flush();
+                    cmd.StandardInput.Close();
+                    Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+                    if (failed.Contains("failed"))
+                    {
+                        cmd.Close();
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("----------------------------------");
+                        Console.WriteLine("FAILED, You may close this window.");
+                        Console.WriteLine("----------------------------------");
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("------------------------------------");
+                        Console.WriteLine("Finished! You may close this window.");
+                        Console.WriteLine("------------------------------------");
+                    }
                     break;
                 case 4:
                     Environment.Exit(0);
