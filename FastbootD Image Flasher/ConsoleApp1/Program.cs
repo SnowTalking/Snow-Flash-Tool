@@ -11,9 +11,10 @@ namespace ConsoleApp1
 {
     class Program
     {
+
         static async Task Main(string[] args)
         {
-            Console.Title = "FastbootD Image Flasher";
+            Console.Title = "FastbootD Image Flasher [RELEASE] V1.0.3";
             Console.WriteLine("Welcome To FastbootD Image Flasher!");
             Console.WriteLine("Made by SnowTalker @ XDA 2021");
             Console.WriteLine("              ");
@@ -36,7 +37,7 @@ namespace ConsoleApp1
                 // but that won't work out well with tabbing out menu items.
                 Console.Clear();
                 // Replace this with whatever you want.
-                Console.WriteLine("Choose an option . . .");
+                Console.WriteLine("Choose an option . . . (prompt will appear before continuing)");
                 Console.WriteLine("           ");
                 // The loop that goes through all of the menu items.
                 for (c = 0; c < menuItems.Length; c++)
@@ -45,7 +46,8 @@ namespace ConsoleApp1
                     // You could easily change it to simply change the color of the text.
                     if (curItem == c)
                     {
-                        Console.Write("> ");
+                        Console.Write(">> ");
+                        Console.ResetColor();
                         Console.WriteLine(menuItems[c]);
                     }
                     // Just write the current option out if the current item is not our variable c.
@@ -56,8 +58,7 @@ namespace ConsoleApp1
                 }
                 // Waits until the user presses a key, and puts it into our object key.
                 Console.WriteLine("         ");
-                Console.Write("Select your choice with the arrow keys.");
-                Console.WriteLine("         ");
+                Console.WriteLine("Select your choice with the arrow keys.");
                 Console.WriteLine("-");
                 Console.WriteLine("Use Enter key to choose the current selected item.");
                 key = Console.ReadKey(true);
@@ -87,13 +88,9 @@ namespace ConsoleApp1
             cmd.StartInfo.CreateNoWindow = false;
             cmd.StartInfo.UseShellExecute = false;
 
-            var a = "error";
-
-
             switch (curItem)
             {
                 case 0:
-                    /* execute "dir" */
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("------------------------------------------------");
@@ -103,41 +100,33 @@ namespace ConsoleApp1
                     string result = Console.ReadLine();
                     if (result.Equals("y", StringComparison.OrdinalIgnoreCase) || result.Equals("yes", StringComparison.OrdinalIgnoreCase))
                     {
-                            Console.Clear();
-                            cmd.Start();
+                        Console.Clear();
+                        cmd.Start();
 
 
-                            Console.ForegroundColor = ConsoleColor.DarkYellow;
-                            Console.WriteLine("Flashing... Please be patient.");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("");
-                            Console.WriteLine("Make sure the device stays connected!");
-                            Console.WriteLine("If you have any issues report back on xda or telegram!");
-                            Console.WriteLine("");
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            await cmd.StandardInput.WriteLineAsync("fastboot reboot fastboot");
-                            await cmd.StandardInput.WriteLineAsync("fastboot flash vbmeta vbmeta.img");
-                            await cmd.StandardInput.WriteLineAsync("fastboot flash boot boot.img");
-                            await cmd.StandardInput.WriteLineAsync("fastboot flash system system.img");
-                            await cmd.StandardInput.WriteLineAsync("fastboot flash product product.img");
-                            await cmd.StandardInput.WriteLineAsync("fastboot -w");
-                            await cmd.StandardInput.WriteLineAsync("fastboot reboot");
-                            cmd.StandardInput.Flush();
-                            cmd.StandardInput.Close();
-                            cmd.StandardOutput.ReadToEnd();
-                            Console.WriteLine(cmd.StandardOutput.ReadToEnd());
-                            if (a.Contains("error"))
-                            {
-                                Console.ForegroundColor = ConsoleColor.DarkRed;
-                                Console.WriteLine("FAILED");
-                                Console.ReadKey();
-                            }
-                            else
-                            {
-                                Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine("SUCCEEDED");
-                                Console.ReadKey();
-                            }
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Flashing... Please be patient.");
+                        Console.ResetColor();
+                        Console.WriteLine("");
+                        Console.WriteLine("Make sure the device stays connected!");
+                        Console.WriteLine("If you have any issues report back on xda or telegram!");
+                        Console.WriteLine("");
+                        Console.ForegroundColor = ConsoleColor.Blue;
+
+                        await cmd.StandardInput.WriteLineAsync("fastboot reboot fastboot");
+                        await cmd.StandardInput.WriteLineAsync("fastboot flash vbmeta vbmeta.img");
+                        await cmd.StandardInput.WriteLineAsync("fastboot flash boot boot.img");
+                        await cmd.StandardInput.WriteLineAsync("fastboot flash system system.img");
+                        await cmd.StandardInput.WriteLineAsync("fastboot flash product product.img");
+                        await cmd.StandardInput.WriteLineAsync("fastboot -w");
+                        await cmd.StandardInput.WriteLineAsync("fastboot reboot");
+                        cmd.StandardInput.Flush();
+                        cmd.StandardInput.Close();
+                        cmd.StandardOutput.ReadToEnd();
+                        Console.WriteLine(cmd.StandardOutput.ReadToEnd());
+                        Console.ResetColor();
+                        Console.WriteLine("Finished.");
+                        Console.ReadKey();
                     }
                     else
                     {
@@ -147,9 +136,8 @@ namespace ConsoleApp1
                         Environment.Exit(0);
                         Console.ReadKey();
                     }
-                        break;
+                    break;
                 case 1:
-                    /* execute "dir" */
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("------------------------------------------------");
@@ -161,13 +149,13 @@ namespace ConsoleApp1
                     {
                         Console.Clear();
                         cmd.Start();
-
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("------------------------------");
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Flashing... Please be patient.");
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("------------------------------");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("");
+                        Console.WriteLine("Make sure the device stays connected!");
+                        Console.WriteLine("If you have any issues report back on xda or telegram!");
+                        Console.WriteLine("");
                         Console.ForegroundColor = ConsoleColor.Blue;
                         await cmd.StandardInput.WriteLineAsync("fastboot reboot fastboot");
                         await cmd.StandardInput.WriteLineAsync("fastboot flash vbmeta vbmeta.img");
@@ -177,19 +165,11 @@ namespace ConsoleApp1
                         await cmd.StandardInput.WriteLineAsync("fastboot -w");
                         cmd.StandardInput.Flush();
                         cmd.StandardInput.Close();
+                        cmd.StandardOutput.ReadToEnd();
                         Console.WriteLine(cmd.StandardOutput.ReadToEnd());
-                        if (a.Contains("error"))
-                        {
-                            Console.ForegroundColor = ConsoleColor.DarkRed;
-                            Console.WriteLine("FAILED");
-                            Console.ReadKey();
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("SUCCEEDED");
-                            Console.ReadKey();
-                        }
+                        Console.ResetColor();
+                        Console.WriteLine("Finished.");
+                        Console.ReadKey();
                     }
                     else
                     {
@@ -213,12 +193,13 @@ namespace ConsoleApp1
                         Console.Clear();
                         cmd.Start();
 
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("------------------------------");
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Flashing... Please be patient.");
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("------------------------------");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("");
+                        Console.WriteLine("Make sure the device stays connected!");
+                        Console.WriteLine("If you have any issues report back on xda or telegram!");
+                        Console.WriteLine("");
                         Console.ForegroundColor = ConsoleColor.Blue;
                         await cmd.StandardInput.WriteLineAsync("fastboot reboot fastboot");
                         await cmd.StandardInput.WriteLineAsync("fastboot flash vbmeta vbmeta.img");
@@ -227,19 +208,11 @@ namespace ConsoleApp1
                         await cmd.StandardInput.WriteLineAsync("fastboot flash product product.img");
                         cmd.StandardInput.Flush();
                         cmd.StandardInput.Close();
+                        cmd.StandardOutput.ReadToEnd();
                         Console.WriteLine(cmd.StandardOutput.ReadToEnd());
-                        if (a.Contains("error"))
-                        {
-                            Console.ForegroundColor = ConsoleColor.DarkRed;
-                            Console.WriteLine("FAILED");
-                            Console.ReadKey();
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("SUCCEEDED");
-                            Console.ReadKey();
-                        }
+                        Console.ResetColor();
+                        Console.WriteLine("Finished.");
+                        Console.ReadKey();
                     }
                     else
                     {
@@ -262,13 +235,13 @@ namespace ConsoleApp1
                     {
                         Console.Clear();
                         cmd.Start();
-
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("------------------------------");
-                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Flashing... Please be patient.");
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("------------------------------");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("");
+                        Console.WriteLine("Make sure the device stays connected!");
+                        Console.WriteLine("If you have any issues report back on xda or telegram!");
+                        Console.WriteLine("");
                         Console.ForegroundColor = ConsoleColor.Blue;
                         await cmd.StandardInput.WriteLineAsync("fastboot reboot fastboot");
                         await cmd.StandardInput.WriteLineAsync("fastboot flash vbmeta vbmeta.img");
@@ -278,19 +251,11 @@ namespace ConsoleApp1
                         await cmd.StandardInput.WriteLineAsync("fastboot reboot");
                         cmd.StandardInput.Flush();
                         cmd.StandardInput.Close();
+                        cmd.StandardOutput.ReadToEnd();
                         Console.WriteLine(cmd.StandardOutput.ReadToEnd());
-                        if (a.Contains("error"))
-                        {
-                            Console.ForegroundColor = ConsoleColor.DarkRed;
-                            Console.WriteLine("FAILED");
-                            Console.ReadKey();
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine("SUCCEEDED");
-                            Console.ReadKey();
-                        }
+                        Console.ResetColor();
+                        Console.WriteLine("Finished.");
+                        Console.ReadKey();
                     }
                     else
                     {
@@ -306,6 +271,6 @@ namespace ConsoleApp1
                     break;
             }
             Console.Read();
-        }
+            }
+       }
     }
-}
