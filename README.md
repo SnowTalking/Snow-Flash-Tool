@@ -1,22 +1,25 @@
-![image](https://user-images.githubusercontent.com/71605881/116820865-3bd77080-ab45-11eb-83ba-5e140d0719f5.png)
+![image](https://user-images.githubusercontent.com/71605881/117222827-64c46380-adda-11eb-85a9-fe104ca73b5f.png)
 
 
-FastbootD Image Flasher
+Snow Flash Tool!
 
-CLI for flashing fastbootd images (roms only) to a phone with dynamic partitons.
+A tool to flash roms various ways, (fastbootd and super imgs only at the moment)
+
+
 
 Requirements:
-Windows 64bit,
+
+Windows 64bit
 Android Phone with dynamic partitions
 
-Notes: if you notice any bugs, freezes, unexpected problems. Report Back to me on xda or on telegram @SnowTalking
+Notes: if you notice any bugs, freezes, unexpected problems. Report Back to me here or on telegram @SnowTalking
 OR join my group for discussions and releases!!!
-https://t.me/fastbootdimageflasherdiscussion
-https://t.me/fastbootdimageflasher
 
-Disclaimer***
-I am not responsible for anything that has happened to your device
+https://t.me/snowflashtooldiscussion
+https://t.me/snowflashtool
 
-This tool was made with <3 in C#, I may not be able to do everything, but I'll try my best, So feature requests are open, Just start an issue and I'll get to it!
+Disclaimer*** I am not responsible for anything that has happened to your device
 
-Enjoy!
+Source: https://github.com/SnowTalking/FastbootD-Image-Flasher
+
+Download: https://androidfilehost.com/?w=files&flid=325135
