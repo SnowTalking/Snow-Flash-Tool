@@ -20,6 +20,4 @@ https://t.me/snowflashtool
 
 Disclaimer*** I am not responsible for anything that has happened to your device
 
-Source: https://github.com/SnowTalking/FastbootD-Image-Flasher
-
 Download: https://androidfilehost.com/?w=files&flid=325135
