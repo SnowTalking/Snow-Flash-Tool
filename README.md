@@ -6,11 +6,10 @@ Snow Flash Tool!
 A tool to flash roms various ways, (fastbootd and super imgs only at the moment)
 
 
-
 Requirements:
 
 Windows 64bit
-Android Phone with dynamic partitions
+Android Phone with an unlocked bootloader
 
 Notes: if you notice any bugs, freezes, unexpected problems. Report Back to me here or on telegram @SnowTalking
 OR join my group for discussions and releases!!!
