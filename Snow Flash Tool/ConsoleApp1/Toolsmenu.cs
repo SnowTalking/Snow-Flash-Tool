@@ -16,46 +16,17 @@ using Colorful;
 
 namespace ConsoleApp1
 {
-    public class Program
+    class Toolsmenu
     {
-        public void getAllFiles(string directoryPath)
+        public static async Task ToolsMenu()
         {
-            var arlist = new ArrayList();
-            DirectoryInfo dirInfo = new DirectoryInfo(directoryPath);
-            FileInfo[] files = dirInfo.GetFiles();
-            foreach (FileInfo f in files)
-            {
-                arlist.Add(f.Name);
-                Console.WriteLine(f.Name);
-            }
-
-            Console.ReadLine();
-        }
-        public static void ClearLastLine()
-        {
-            Console.SetCursorPosition(0, Console.CursorTop - 1);
-            Console.Write(new string(' ', Console.WindowWidth));
-            Console.SetCursorPosition(0, Console.CursorTop - (Console.WindowWidth >= Console.BufferWidth ? 1 : 0));
-        }
-        
-        public static async Task FlashMenu()
-        {
-            Process cmd = new Process();
-
-            cmd.StartInfo.FileName = "cmd.exe";
-            cmd.StartInfo.RedirectStandardInput = true;
-            cmd.StartInfo.RedirectStandardOutput = true;
-            cmd.StartInfo.CreateNoWindow = false;
-            cmd.StartInfo.UseShellExecute = false;
-
-
             // A variable to keep track of the current Item, and a simple counter.
             short curItem = 0, c;
 
             // The object to read in a key
             ConsoleKeyInfo key;
             // Our array of Items for the menu (in order)
-            string[] menuItems = { "Flash", "Misc", "Main Menu" };
+            string[] menuItems = { "Unlock Bootloader", "Lock Bootloader", "Get unlock data", "Reboot to fastbootd", "Reboot to recovery", "Format Data", "Change slot", "Return" };
             do
             {
                 // Clear the screen.  One could easily change the cursor position,
@@ -102,24 +73,38 @@ namespace ConsoleApp1
 
                 // Loop around until the user presses the enter go.
 
+
+
             } while (key.KeyChar != 13);
 
             switch (curItem)
             {
+
                 case 0:
-                    await Flashfastbootmenu.FlashFastbootMenu();
+                    await doUnlockbootloader.doUnlockBootloader();
                     break;
                 case 1:
-                    await Toolsmenu.ToolsMenu();
+                    await doLockbootloader.doLockBootloader();
                     break;
                 case 2:
-                    await Mainmenu.Main();
+                    await doGetunlockdata.doGetUnlockdata();
+                    break;
+                case 3:
+                    await doReboottofastbootd.doRebootTofastbootd();
+                    break;
+                case 4:
+                    await doReboottorecovery.doRebootToreocvery();
+                    break;
+                case 5:
+                    await doFormatdata.doFormatData();
+                    break;
+                case 6:
+                    await Switchslotsmenu.SwitchSlotsMenu();
+                    break;
+                case 7:
+                    await Program.FlashMenu();
                     break;
             }
         }
-        
-        
-        
     }
 }
-

@@ -36,8 +36,12 @@
     <ApplicationIcon>icons8-console-64.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Colorful.Console, Version=1.2.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Colorful.Console.1.2.15\lib\net461\Colorful.Console.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
       <Private>True</Private>
@@ -53,8 +57,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="doAskifformat.cs" />
+    <Compile Include="doAskifreboot.cs" />
+    <Compile Include="doFlashrecovery.cs" />
+    <Compile Include="doFlashtwrpflashable.cs" />
+    <Compile Include="doFormatdata.cs" />
+    <Compile Include="doGetunlockdata.cs" />
+    <Compile Include="doLockbootloader.cs" />
+    <Compile Include="doReboottofastbootd.cs" />
+    <Compile Include="doReboottorecovery.cs" />
+    <Compile Include="doUnlockbootloader.cs" />
+    <Compile Include="Flashfastbootmenu.cs" />
+    <Compile Include="Mainmenu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Switchslotsmenu.cs" />
+    <Compile Include="Toolsmenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
