@@ -3,7 +3,7 @@
 
 Snow Flash Tool!
 
-A tool to flash, unlock bootloader etc!
+A tool to flash, unlock bootloader, and more!
 
 
 Requirements:
