@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO.Compression;
 using System.IO;
@@ -105,7 +104,8 @@ namespace ConsoleApp1
 
                     Console.Clear();
                     Console.WriteLine("Developers", Color.OrangeRed);
-                    Console.WriteLine("SnowTalker @XDA 2021");
+                    Console.WriteLine("weebmanperson @XDA 2021");
+                    Console.WriteLine("@dragonBall561 for porting this app to Linux/MacOS");
                     Console.WriteLine(" ");
                     Console.WriteLine("Contributors", Color.OrangeRed);
                     Console.WriteLine("Huge thanks to @nicopizzafria for being a good friend and all in all supporting me");
