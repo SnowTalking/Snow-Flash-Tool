@@ -201,18 +201,38 @@ namespace Snow_Flash_Tool
 					break;
 				case 3:
 					Console.Title = "DIY Flash (Command Prompt)";
-					var shell2 = "/bin/bash";
+					var shell2 = "/dev/null";
 					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-						shell2 = "cmd.exe";
+						var shell2 = "cmd.exe";
 					}
 					Process diycmd = new Process();
 					cmd.StartInfo.FileName = shell2;
 					cmd.StartInfo.CreateNoWindow = false;
 					cmd.Start();
 					Console.Clear();
-					Console.WriteLine("Started Command Prompt. To return back to flash menu, press any key.");
-					Console.WriteLine("This Doesn't Work on Linux. This will never work on Linux. Dont try to make this work on Linux.");
-					Console.WriteLine("Please note; You may need an enviroment variable to gain access to fastboot and adb in the cmd window.");
+					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+						Console.WriteLine("Started Command Prompt. To return back to flash menu, press any key.");
+						Console.WriteLine("Add adb and fastboot to your PATH, so you can use it from any directory.");
+					} 
+					else {
+						if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
+							Console.WriteLine("This doesnt work on OSX because we dont know the executable for the Terminal app.");
+							Console.WriteLine("Submit an Issue on our GitHub (https://github.com/SnowTalking/Snow-Flash-Tool) if you know where it is");
+							Console.WriteLine("Open your own Terminal Window for now.");
+							Console.WriteLine("Press any button to continue.");
+						}
+						else {
+							if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
+								Console.WriteLine("This will not work on Linux. This will never work on Linux.");
+								Console.WriteLine("This is because there are too many Terminal apps for Linux.");
+								Console.WriteLine("A few examples are gnome-terminal and kconsole.");
+								Console.WriteLine("There are too many to guess.");
+								Console.WriteLine("Just open your default Terminal if you want to DIY Flash.");
+								Console.WriteLine("Press any button to continue.");
+
+							}
+						}
+					}
 					Console.ReadKey();
 					await FlashFastbootMenu();
 					break;
