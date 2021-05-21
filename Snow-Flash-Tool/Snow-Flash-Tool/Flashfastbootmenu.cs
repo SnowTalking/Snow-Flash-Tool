@@ -211,7 +211,7 @@ namespace Snow_Flash_Tool
 					cmd.Start();
 					Console.Clear();
 					Console.WriteLine("Started Command Prompt. To return back to flash menu, press any key.");
-					Console.WriteLine("This Doesn't Work on Linux. This will never work on Linux. Dont try to make this work on Linux.")
+					Console.WriteLine("This Doesn't Work on Linux. This will never work on Linux. Dont try to make this work on Linux.");
 					Console.WriteLine("Please note; You may need an enviroment variable to gain access to fastboot and adb in the cmd window.");
 					Console.ReadKey();
 					await FlashFastbootMenu();
