@@ -1,0 +1,15 @@
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/obj/Debug/netcoreapp3.1/Snow-Flash-Tool.csprojAssemblyReference.cache
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/obj/Debug/netcoreapp3.1/Snow-Flash-Tool.AssemblyInfoInputs.cache
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/obj/Debug/netcoreapp3.1/Snow-Flash-Tool.AssemblyInfo.cs
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/obj/Debug/netcoreapp3.1/Snow-Flash-Tool.csproj.CoreCompileInputs.cache
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/bin/Debug/netcoreapp3.1/Snow-Flash-Tool
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/bin/Debug/netcoreapp3.1/Snow-Flash-Tool.deps.json
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/bin/Debug/netcoreapp3.1/Snow-Flash-Tool.runtimeconfig.json
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/bin/Debug/netcoreapp3.1/Snow-Flash-Tool.runtimeconfig.dev.json
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/bin/Debug/netcoreapp3.1/Snow-Flash-Tool.dll
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/bin/Debug/netcoreapp3.1/Snow-Flash-Tool.pdb
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/bin/Debug/netcoreapp3.1/Colorful.Console.dll
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/obj/Debug/netcoreapp3.1/Snow-Flash-Tool.csproj.CopyComplete
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/obj/Debug/netcoreapp3.1/Snow-Flash-Tool.dll
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/obj/Debug/netcoreapp3.1/Snow-Flash-Tool.pdb
+/home/angad/Snow-Flash-Tool/Snow-Flash-Tool/Snow-Flash-Tool/obj/Debug/netcoreapp3.1/Snow-Flash-Tool.genruntimeconfig.cache
