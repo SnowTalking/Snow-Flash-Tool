@@ -201,9 +201,9 @@ namespace Snow_Flash_Tool
 					break;
 				case 3:
 					Console.Title = "DIY Flash (Command Prompt)";
-					var shell2 = "/dev/null";
+					var shell2 = "/bin/bash";
 					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-						var shell2 = "cmd.exe";
+						shell2 = "cmd.exe";
 					}
 					Process diycmd = new Process();
 					cmd.StartInfo.FileName = shell2;

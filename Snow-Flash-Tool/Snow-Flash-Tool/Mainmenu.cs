@@ -120,7 +120,19 @@ namespace Snow_Flash_Tool
 				case 3:
 					Console.Clear();
 					Console.WriteLine("Link launched. To return to the main menu, press any key.");
-					System.Diagnostics.Process.Start("https://t.me/snowflashtooldiscussion");
+					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+						Process.Start(new ProcessStartInfo("cmd", $"/c start {"https://t.me/snowflashtooldiscussion"}") { CreateNoWindow = true });
+					}
+					else {
+						if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+							Process.Start("xdg-open", "https://t.me/snowflashtooldiscussion");
+						}
+						else { 
+							if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
+								Process.Start("open", "https://t.me/snowflashtooldiscussion");
+							}
+						}
+					}
 					Console.ReadKey();
 					await Main();
 
