@@ -13,7 +13,7 @@ using System.Drawing;
 using Console = Colorful.Console;
 using Colorful;
 
-namespace Snow-Flash-Tool
+namespace Snow_Flash_Tool
 {
 	class Mainmenu
 	{
@@ -132,7 +132,7 @@ namespace Snow-Flash-Tool
 					Console.ResetColor();
 					Console.WriteLine("This tool is licensed with GPL-3.0 License, For more information use these links: ");
 					Console.WriteLine("https://www.gnu.org/licenses/gpl-3.0.en.html", Color.CornflowerBlue);
-					Console.WriteLine("https://github.com/SnowTalking/Snow-Flash-Tool", Color.CornflowerBlue);
+					Console.WriteLine("https://github.com/SnowTalking/Snow_Flash_Tool", Color.CornflowerBlue);
 					Console.ResetColor();
 					Console.WriteLine(" ");
 					Console.WriteLine("* I am not responsible for bricked devices, dead SD cards,");

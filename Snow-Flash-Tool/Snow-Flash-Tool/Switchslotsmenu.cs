@@ -10,7 +10,7 @@ using System.IO.Compression;
 using System.IO;
 using System.Collections;
 
-namespace Snow-Flash-Tool
+namespace Snow_Flash_Tool
 {
 	class Switchslotsmenu
 	{
@@ -142,12 +142,12 @@ namespace Snow-Flash-Tool
 					}
 					break;
 				case 1:
-					var shell = "/bin/bash";
+					var shell2 = "/bin/bash";
 					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-						shell = "cmd.exe";
+						shell2 = "cmd.exe";
 					}
 					Process cmd7 = new Process();
-					cmd7.StartInfo.FileName = shell;
+					cmd7.StartInfo.FileName = shell2;
 					cmd7.StartInfo.RedirectStandardInput = true;
 					cmd7.StartInfo.RedirectStandardOutput = true;
 					cmd7.StartInfo.CreateNoWindow = false;

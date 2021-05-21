@@ -13,7 +13,7 @@ using System.Drawing;
 using Console = Colorful.Console;
 using Colorful;
 
-namespace Snow-Flash-Tool
+namespace Snow_Flash_Tool
 {
 	public class Program
 	{

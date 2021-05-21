@@ -13,7 +13,7 @@ using System.Drawing;
 using Console = Colorful.Console;
 using Colorful;
 
-namespace Snow-Flash-Tool
+namespace Snow_Flash_Tool
 {
 	class Flashfastbootmenu
 	{
@@ -201,16 +201,17 @@ namespace Snow-Flash-Tool
 					break;
 				case 3:
 					Console.Title = "DIY Flash (Command Prompt)";
-					var shell = "/bin/bash";
+					var shell2 = "/bin/bash";
 					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-						shell = "cmd.exe";
+						shell2 = "cmd.exe";
 					}
 					Process diycmd = new Process();
-					cmd.StartInfo.FileName = shell;
+					cmd.StartInfo.FileName = shell2;
 					cmd.StartInfo.CreateNoWindow = false;
 					cmd.Start();
 					Console.Clear();
 					Console.WriteLine("Started Command Prompt. To return back to flash menu, press any key.");
+					Console.WriteLine("This Doesn't Work on Linux. This will never work on Linux. Dont try to make this work on Linux.")
 					Console.WriteLine("Please note; You may need an enviroment variable to gain access to fastboot and adb in the cmd window.");
 					Console.ReadKey();
 					await FlashFastbootMenu();

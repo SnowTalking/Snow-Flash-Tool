@@ -10,7 +10,7 @@ using System.IO.Compression;
 using System.IO;
 using System.Collections;
 
-namespace Snow-Flash-Tool
+namespace Snow_Flash_Tool
 {
 	public class doUnlockbootloader
 	{

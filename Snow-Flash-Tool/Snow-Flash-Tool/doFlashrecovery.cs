@@ -10,7 +10,7 @@ using System.IO.Compression;
 using System.IO;
 using System.Collections;
 
-namespace Snow-Flash-Tool
+namespace Snow_Flash_Tool
 {
 	class doFlashrecovery
 	{
@@ -70,7 +70,7 @@ namespace Snow-Flash-Tool
 		}
 		public static async Task AskIfFlashToBothSlots()
 		{
-			Pvar shell = "/bin/bash";
+			var shell = "/bin/bash";
 			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
 				shell = "cmd.exe";
 			}
