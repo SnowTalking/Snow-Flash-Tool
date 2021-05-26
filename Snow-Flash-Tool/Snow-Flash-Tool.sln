@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snow-Flash-Tool", "Snow-Flash-Tool\Snow-Flash-Tool.csproj", "{A892898F-72F1-42EC-931B-38F9DB7E6D7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A892898F-72F1-42EC-931B-38F9DB7E6D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A892898F-72F1-42EC-931B-38F9DB7E6D7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A892898F-72F1-42EC-931B-38F9DB7E6D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A892898F-72F1-42EC-931B-38F9DB7E6D7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {539B23EA-86A9-4202-BCAA-A69C190AB463}
+	EndGlobalSection
+EndGlobal
