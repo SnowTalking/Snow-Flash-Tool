@@ -17,7 +17,8 @@
 # Notes
 * Mac users will need to build themselves
 * This has not been tested on a Mac. We don't have a Mac.
-* This project won't work with .NET 5.0 because I'm too lazy to refactor.
+* This project won't work with .NET 5.0 because the person who ported this to Linux is too lazy to refactor it.
+* We packaged binaries to a .deb ourselves. If you build on Linux, (and maybe MacOS), it will NOT give a deb package
 
 ## Build Requirements
 ### Windows
