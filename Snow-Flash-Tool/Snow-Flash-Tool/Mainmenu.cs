@@ -87,13 +87,9 @@ namespace Snow_Flash_Tool
 				case 1:
 
 					Console.Clear();
-					Console.WriteLine("V1.2.2 (current)");
-					Console.WriteLine("Changes include:");
-					Console.WriteLine("Added get file name for gsi flash");
-					Console.WriteLine("Added get file name for recovery flash");
-					Console.WriteLine("Added TWRP flashable flash, finally");
-					Console.WriteLine("Tweaked main menu a bit, now has some cool ASCII art!");
-					Console.WriteLine("Added Warnings & Info. Please read it!");
+					Console.WriteLine("V1.3.1 (current)");
+					Console.WriteLine("Changes include:")
+					Console.WriteLine("dotnet 5.0")
 					Console.WriteLine("-");
 					Console.WriteLine("To return, press any key.");
 					Console.ReadKey();
