@@ -206,13 +206,13 @@ namespace Snow_Flash_Tool
 						shell2 = "cmd.exe";
 					}
 					Process diycmd = new Process();
-					cmd.StartInfo.FileName = shell2;
-					cmd.StartInfo.CreateNoWindow = false;
-					cmd.Start();
+					diycmd.StartInfo.FileName = shell2;
+					diycmd.StartInfo.Arguments = $"/c start cmd.exe";
 					Console.Clear();
 					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
 						Console.WriteLine("Started Command Prompt. To return back to flash menu, press any key.");
-						Console.WriteLine("Add adb and fastboot to your PATH, so you can use it from any directory.");
+						Console.WriteLine("Add adb and fastboot to your PATH, so you can use it from any directory.");	
+						diycmd.Start();
 					} 
 					else {
 						if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
