@@ -17,7 +17,7 @@
 # Notes
 * Mac users will need to build themselves
 * This has not been tested on a Mac. We don't have a Mac.
-* This project won't work with .NET 5.0 because the person who ported this to Linux is too lazy to refactor it.
+* This project now works with dotnet 5.0
 * We packaged binaries to a .deb ourselves. If you build on Linux, (and maybe MacOS), it will NOT give a deb package
 
 ## Build Requirements
@@ -32,7 +32,7 @@
 * Fufill the Build Requirements (Above)
 * `cd` into the directory of the `.sln` file.
 * Run `dotnet build`
-* Output is in `./Snow-Flash-Tool/bin/Debug/netcoreapp3.1/`
+* Output is in `./Snow-Flash-Tool/bin/Debug/net5.0/`
 
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/71605881/118374704-9f24c200-b58b-11eb-8a56-20c3cfbd4ed7.png)
