@@ -88,8 +88,8 @@ namespace Snow_Flash_Tool
 
 					Console.Clear();
 					Console.WriteLine("V1.3.1 (current)");
-					Console.WriteLine("Changes include:")
-					Console.WriteLine("dotnet 5.0")
+					Console.WriteLine("Changes include:");
+					Console.WriteLine("dotnet 5.0");
 					Console.WriteLine("-");
 					Console.WriteLine("To return, press any key.");
 					Console.ReadKey();
